@@ -35,3 +35,10 @@ module.exports.delete = function(req, res, next){
     else res.json(event);
   });
 };
+
+module.exports.search = function(req, res, next){
+  Events.find({ title: req.params.keyword }, function(err, events){
+    if (err) next(err);
+    else res.json(events);
+  });
+};

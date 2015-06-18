@@ -7,5 +7,6 @@ router
   .post('/events', eventController.create)
   .put('/events/:eventId', eventController.update)
   .delete('/events/:eventId', eventController.delete);
+  .delete('/events/search/:keyword', eventController.search);
 
 module.exports = router;
