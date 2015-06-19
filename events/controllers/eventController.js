@@ -15,7 +15,7 @@ module.exports.getAll = function(req, res, next){
 };
 
 module.exports.create = function(req, res, next){
-  var event = new Event(req.body);
+  var event = new Events(req.body);
   event.save(function(err, event){
     if (err) next(err);
     else res.json(event);
@@ -23,9 +23,20 @@ module.exports.create = function(req, res, next){
 };
 
 module.exports.update = function(req, res, next){
-  Events.update(req.params.eventId, { $set: req.body }, function(err, event){
-    if (err) next(err);
-    else res.json(event);
+  Events.findById(req.params.eventId, function(err, event){
+
+    // Probably excessive 
+    event.title = req.body.title;
+    event.from = req.body.from;
+    event.description = req.body.description;
+    event.location = req.body.location;
+    event.participants = req.body.participants;
+    event.to = req.body.to;
+
+    event.save(function(err, event){
+      if (err) next(err);
+      else res.json(event);
+    });
   });
 };
 

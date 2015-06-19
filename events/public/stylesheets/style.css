@@ -6,3 +6,50 @@ body {
 a {
   color: #00B7FF;
 }
+
+ul {
+  list-style-type: none;
+  margin: 1em 0 1em 0;
+  padding: 0;
+}
+
+li {
+  margin: 1em 0 1em 0;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.event-view {
+  cursor: pointer;
+}
+
+.search {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.new-event-btn {
+  margin-bottom: 1em;
+  width: 100%;
+  display: block;
+}
+
+.event-create {
+  margin-bottom: 1em;
+}
+
+.search-separator {
+  margin: 1em 0 1em 0;
+}
+
+.alert-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  font-size: 2em;
+}

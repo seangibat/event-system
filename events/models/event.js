@@ -6,7 +6,7 @@ var EventSchema = new Schema({
   from: { type: Date, required: true },
   to: { type: Date, required: true },
   location: { type: String },
-  descriptipn: { type: String },
+  description: { type: String },
   participants: { type: [String] }
 }, { 
   strict: true 
