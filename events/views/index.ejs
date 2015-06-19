@@ -61,7 +61,7 @@
         <div ng-hide="editing" class="event-view" ng-init="showDetails = false" ng-click="showDetails = !showDetails" >
           <table class="table">
             <thead>
-              <tr><th colspan="2">{{ event.title }}</th></tr>
+              <tr><th>{{ event.title }}</th><th ng-hide="showDetails">{{ event.from | date:"MM/dd/yyyy 'at' h:mma" }} - {{ event.to | date:"MM/dd/yyyy 'at' h:mma" }}</th></tr>
             </thead>
             <tbody ng-show="showDetails">
               <tr><td>Start</td><td>{{ event.from | date:"MM/dd/yyyy 'at' h:mma" }}</td></tr>

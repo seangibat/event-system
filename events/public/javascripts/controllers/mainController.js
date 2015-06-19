@@ -4,6 +4,7 @@ eventSystem.controller("mainController", ['$scope', '$timeout', 'Event', functio
   var messageTimeout = null;
   $scope.creating = false;
   $scope.newEvent = new Event();
+  $scope.events = Event.query();
 
   // Use a timeout to wait until the user is done typing.
   $scope.searchWhenDoneTyping = function(keyword){

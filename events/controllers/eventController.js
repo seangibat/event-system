@@ -8,7 +8,7 @@ module.exports.get = function(req, res, next){
 };
 
 module.exports.getAll = function(req, res, next){
-  Events.find(function(err, allEvents){
+  Events.find().sort('-createdAt').exec(function(err, allEvents){
     if (err) next(err);
     else res.json(allEvents);
   });

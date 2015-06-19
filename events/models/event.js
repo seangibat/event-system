@@ -7,7 +7,8 @@ var EventSchema = new Schema({
   to: { type: Date, required: true },
   location: { type: String },
   description: { type: String },
-  participants: { type: [String] }
+  participants: { type: [String] },
+  createdAt : { type : Date, default: Date.now }
 }, { 
   strict: true 
 });

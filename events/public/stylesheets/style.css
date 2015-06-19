@@ -53,3 +53,7 @@ li {
   font-weight: bold;
   font-size: 2em;
 }
+
+th {
+  width: 50%;
+}
