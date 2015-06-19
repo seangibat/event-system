@@ -18,7 +18,7 @@
 
     <span class="alert-message">{{message}}</span>
 
-    <button ng-click="creating = true" class="btn btn-default new-event-btn">Create New Event</button>
+    <button ng-click="creating = !creating" class="btn btn-default new-event-btn">Create New Event</button>
     
     <div ng-show="creating" class="event-create">
       <form role="form" ng-submit="creatEvent(newEvent)">
@@ -56,7 +56,7 @@
     <input type="text" placeholder="Search Events" ng-model="keyword" ng-keyup="searchWhenDoneTyping(keyword)" class="form-control search">
 
     <ul>
-      <li ng-repeat="(index, event) in events" class="event-container">
+      <li ng-repeat="(index, event) in events | limitTo: 10" class="event-container">
 
         <div ng-hide="editing" class="event-view" ng-init="showDetails = false" ng-click="showDetails = !showDetails" >
           <table class="table">
