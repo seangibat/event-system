@@ -29,7 +29,7 @@ eventSystem.controller("mainController", ['$scope', '$timeout', 'Event', functio
 
   $scope.creatEvent = function(event){
     $scope.creating = false;
-    event.participants = event.participantsString.split(' ');
+    event.participants = event.participantsString.split(",").map(function(s){ return s.trim() });
     delete event.participantsString;
     event.$save(function(event){
       displayMessage("New event created!");
@@ -38,7 +38,7 @@ eventSystem.controller("mainController", ['$scope', '$timeout', 'Event', functio
   };
 
   $scope.updateEvent = function(editedEvent, event, index){
-    editedEvent.participants = editedEvent.participantsString.split(' ');
+    editedEvent.participants = editedEvent.participantsString.split(",").map(function(s){ return s.trim() });
     delete editedEvent.participantsString;
     Event.update({ id: event._id }, editedEvent, function(){
       $scope.events[index] = editedEvent;

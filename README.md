@@ -13,3 +13,7 @@ There were slightly differing instructions regarding what should be displayed in
 Thank you for the opportunity! I'd be happy to talk about my implementation with you.
 
 Sean
+
+#Updates
+
+* 3AM PST - changed the participants list to be comma separated rather than space separated
