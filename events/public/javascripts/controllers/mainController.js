@@ -28,7 +28,6 @@ eventSystem.controller("mainController", ['$scope', '$timeout', 'Event', functio
   };
 
   $scope.creatEvent = function(event){
-    console.log(event);
     $scope.creating = false;
     event.participants = event.participantsString.split(' ');
     delete event.participantsString;

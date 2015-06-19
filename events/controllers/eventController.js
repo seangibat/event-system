@@ -25,7 +25,6 @@ module.exports.create = function(req, res, next){
 module.exports.update = function(req, res, next){
   Events.findById(req.params.eventId, function(err, event){
 
-    // Probably excessive 
     event.title = req.body.title;
     event.from = req.body.from;
     event.description = req.body.description;
