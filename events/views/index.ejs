@@ -40,11 +40,11 @@
         </div>
         <div class="form-group">
           <label for="description">Description</label>
-          <input name="description" type="text" class="form-control" ng-model="newEvent.description">
+          <textarea name="description" class="form-control" ng-model="newEvent.description"></textarea>
         </div>
         <div class="form-group">
           <label for="participants">Space Separated List of Participants</label>
-          <textarea name="participants" class="form-control" ng-model="newEvent.participantsString"></textarea>
+          <input type="text" name="participants" class="form-control" ng-model="newEvent.participantsString">
         </div>
         <input type="submit" value="Save" class="btn btn-success">
         <button type="button" ng-click="creating = false" class="btn btn-danger">Cancel</button>

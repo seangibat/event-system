@@ -41,6 +41,7 @@ module.exports.update = function(req, res, next){
 
 module.exports.delete = function(req, res, next){
   Events.findOneAndRemove(req.params.eventId, function(err, event){
+    console.log(err, event);
     if (err) next(err);
     else res.json(event);
   });
