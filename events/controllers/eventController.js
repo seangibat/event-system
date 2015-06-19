@@ -37,7 +37,8 @@ module.exports.delete = function(req, res, next){
 };
 
 module.exports.search = function(req, res, next){
-  Events.find({ title: req.params.keyword }, function(err, events){
+  var keyword = req.params.keyword || "";
+  Events.find({ title: new RegExp(keyword, "ig") }, function(err, events){
     if (err) next(err);
     else res.json(events);
   });

@@ -9,13 +9,39 @@
     <script src="/components/angular-resource.min/index.js"></script>
 
     <script src="/javascripts/app.js"></script>
-    <script src="/javascripts/services/Events.js"></script>
-    <script src="/javascripts/controllers/eventsController.js"></script>
+    <script src="/javascripts/services/Event.js"></script>
+    <script src="/javascripts/controllers/mainController.js"></script>
   </head>
-  <body>
+  <body ng-app="eventSystem" ng-controller="mainController">
     <h1>Events!</h1>
-    <% events.forEach(function(event){ %>
-      <p><%= JSON.stringify(event) %></p>
-    <% }); %>
+    
+    <input type="text" ng-model="keyword" ng-keyup="searchWhenDoneTyping(keyword)"><br>
+
+    <div ng-repeat="event in events" class="event-container">
+
+      <div ng-hide="editing" class="event-view">
+        <p ng-init="showDetails = false" ng-click="showDetails = !showDetails" class="event-title">
+          {{ event.title }}
+        </p>
+        <p ng-show="showDetails" class="event-details">
+          {{ event.from }} - {{ event.to }}
+          {{ event.location }}
+          {{ event.description }}
+          {{ event.participants.join(", ") }}
+        </p>
+
+        <button ng-init="editing = true" ng-click="editing = true" class="btn btn-default">Edit</button>
+      </div>
+
+      <div ng-show="editing" class="event-edit">
+        <form ng-init="editedEvent = angular.copy(event)" ng-submit="saveEvent(editedEvent, event)">
+          <input type="text"><br>
+          <input type="text"><br>
+          <input type="submit" value="Save" class="btn btn-default">\
+          <button ng-click="editing = false" class="btn btn-default">Cancel</button>
+        </form>
+      </div>
+
+    </div>
   </body>
 </html>
